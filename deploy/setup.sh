@@ -27,8 +27,7 @@ mkdir -p /var/log/adversarydata
 
 # --- 8. Setup Nginx ---
 echo "[8/9] Configuring Nginx..."
-cp /var/www/adversarydata
-/deploy/nginx.conf /etc/nginx/sites-available/adversarydata
+cp /var/www/adversarydata/deploy/nginx.conf /etc/nginx/sites-available/adversarydata
 
 ln -sf /etc/nginx/sites-available/adversarydata /etc/nginx/sites-enabled/adversarydata
 
