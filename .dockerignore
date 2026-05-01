@@ -1,0 +1,11 @@
+node_modules
+.next
+db/*.sqlite
+db/*.sqlite-*
+data/
+uploads/
+.env
+.env.*
+.git
+.github
+*.log

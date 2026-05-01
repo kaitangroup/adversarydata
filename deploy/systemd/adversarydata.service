@@ -1,0 +1,21 @@
+# Optional alternative to PM2: systemd service unit.
+# Install at /etc/systemd/system/adversarydata.service then:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now adversarydata
+[Unit]
+Description=adversarydata.com Next.js app
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/adversarydata
+EnvironmentFile=/var/www/adversarydata/.env
+ExecStart=/usr/bin/node node_modules/next/dist/bin/next start -p 4011
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/adversarydata/out.log
+StandardError=append:/var/log/adversarydata/err.log
+
+[Install]
+WantedBy=multi-user.target

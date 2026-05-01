@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci --omit=dev=false
+      - name: Init DB
+        run: npm run db:init
+        env:
+          SESSION_SECRET: ci-test-secret-please-replace-with-32-chars
+          ADMIN_EMAIL: ci@example.com
+          ADMIN_PASSWORD: ChangeMe123456
+          DATABASE_PATH: ${{ github.workspace }}/db/ci.sqlite
+      - run: npm run build
+        env:
+          SESSION_SECRET: ci-test-secret-please-replace-with-32-chars
