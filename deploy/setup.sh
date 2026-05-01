@@ -13,7 +13,7 @@ echo "=============================="
 
  # --- 1. System update ---
 echo "[1/9] Updating system packages..."
-apt-get update -y && apt-get upgrade -y 
+#apt-get update -y && apt-get upgrade -y 
 
 
 
