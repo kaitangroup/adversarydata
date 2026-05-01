@@ -1,7 +1,6 @@
 #!/bin/bash
 # =============================================================
-#  adversarydata
- — DigitalOcean Droplet Setup Script
+#  adversarydata — DigitalOcean Droplet Setup Script
 #  Run this ONCE on a fresh Ubuntu 22.04 droplet as root:
 #    bash setup.sh
 # =============================================================
@@ -31,10 +30,9 @@ echo "[8/9] Configuring Nginx..."
 cp /var/www/adversarydata
 /deploy/nginx.conf /etc/nginx/sites-available/adversarydata
 
-ln -sf /etc/nginx/sites-available/adversarydata
- /etc/nginx/sites-enabled/adversarydata
+ln -sf /etc/nginx/sites-available/adversarydata /etc/nginx/sites-enabled/adversarydata
 
-rm -f /etc/nginx/sites-enabled/default
+rm -f /etc/nginx/sites-enabled/default 
 nginx -t && systemctl reload nginx
 
 # --- 9. Firewall ---
@@ -48,11 +46,7 @@ echo "=============================="
 echo "  Setup complete!"
 echo ""
 echo "  NEXT STEPS:"
-echo "  1. Upload your project to /var/www/adversarydata
-/"
-echo "  2. Run: bash /var/www/adversarydata
-/deploy/deploy.sh"
-echo "  3. Get SSL cert: certbot --nginx -d adversarydata
-.com -d www.adversarydata
-.com"
+echo "  1. Upload your project to /var/www/adversarydata/"
+echo "  2. Run: bash /var/www/adversarydata/deploy/deploy.sh"
+echo "  3. Get SSL cert: certbot --nginx -d adversarydata.com -d www.adversarydata.com"
 echo "=============================="

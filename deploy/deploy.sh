@@ -1,10 +1,8 @@
 #!/bin/bash
 # =============================================================
-#  adversarydata
- — Deploy / Update Script
+#  adversarydata — Deploy / Update Script
 #  Run this every time you push new code:
-#    cd /var/www/adversarydata
- && bash deploy/deploy.sh
+#    cd /var/www/adversarydata&& bash deploy/deploy.sh
 # =============================================================
 
 set -e
@@ -52,8 +50,6 @@ echo "  Public URL: https://adversarydata
 echo ""
 echo "  Useful commands:"
 echo "    pm2 status          — check app status"
-echo "    pm2 logs adversarydata
-  — view live logs"
-echo "    pm2 restart adversarydata
- — restart app"
+echo "    pm2 logs adversarydata — view live logs"
+echo "    pm2 restart adversarydata — restart app"
 echo "=============================="
